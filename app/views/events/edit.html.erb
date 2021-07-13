@@ -1,0 +1,44 @@
+<div class="edit_header">
+    <a href="/events">Events Dashboard</a>
+    <form action="/users/destroy" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+    </form>
+</div>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <p class="error"> <%= e %> </p>
+    <% end %>
+<% end %> 
+<% if flash[:success] %>
+    <% flash[:success].each do |s| %>
+        <p class="success"> <%= s %> </p>
+    <% end %>
+<% end %> 
+
+<div class="edit_form_container">
+    <h1> Edit Event: <%= @event.name%> </h1>
+    <form action="/events/<%= @event.id%>/edit" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="patch">
+        <div class="input_element">
+            <label>Event Name: </label>
+            <input type="text" name="name" value="<%= @event.name %>">
+        </div>
+        <div class="input_element">
+            <label>Date: </label>
+            <input type="date" name="date" value="<%= @event.date %>">
+        </div>
+        <div class="input_element">
+            <label>City: </label>
+            <input type="text" name="city" value="<%= current_user.city %>">
+        </div>
+        <div class="input_element">
+            <label>State: </label>
+            <%= select_tag "state", options_for_select(us_states, current_user.state) %>
+        </div>
+        <input type="submit" value="Update Event">
+    </form>
+</div>

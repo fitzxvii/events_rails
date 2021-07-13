@@ -1,0 +1,62 @@
+<div class="edit_header">
+    <a href="/events"> Events Dashboard </a>
+    <form action="/users/destroy" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+    </form>
+</div>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <p class="error"> <%= e %> </p>
+    <% end %>
+<% end %> 
+<% if flash[:success] %>
+    <% flash[:success].each do |s| %>
+        <p class="success"> <%= s %> </p>
+    <% end %>
+<% end %> 
+
+<div id="event_info">
+    <h1><%= @event.name %></h1>
+    <h2>Host: <%= @event.user.first_name %> <%= @event.user.last_name %></h2>
+    <h2>Date: <%= @event.date.strftime("%d/%m/%Y")%></h2>
+    <h2>Location: <%= @event.city %>, <%= @event.state%></h2>
+    <h2>Attendees: <%= @attendees.count%></h2>
+
+    <table>
+        <thead>
+            <th> Name </th>
+            <th> Location </th>
+            <th> State </th>
+        </thead>
+        <tbody>
+            <% @attendees.each do |attendee| %>
+                <tr>
+                    <td><%= attendee.first_name %> <%= attendee.last_name %></td>
+                    <td><%= attendee.city %></td>
+                    <td><%= attendee.state %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div id="events_discussion">
+    <h2> Discussion about this event </h2>
+    <div id="comments_container">
+        <% @comments.each do |comment| %>
+            <p><%= comment.user.first_name %> <%= comment.user.last_name %> says: <%= comment.content %></p>
+        <% end %>
+    </div>
+
+    <form action="/events/<%= @event.id %>/comment" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="input_element">
+            <label>Add comment: </label>
+            <textarea name="content"></textarea>
+        </div>
+        <input type="submit" value="Add Comment">
+    </form>
+</div>

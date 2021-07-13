@@ -1,0 +1,264 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.error {
+    color: crimson;
+    font-weight: bold;
+    text-align: center;
+}
+
+.success {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form_container {
+    display: inline-block;
+    width: 600px;
+    background-color: gray;
+    border: solid black 2px;
+    margin: 20px;
+    vertical-align: top;
+}
+
+    .form_container h1 {
+        margin-left: 10px;
+    }
+
+.login_reg_form {
+    padding: 15px;
+    width: 550px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+    .login_reg_form input[type=submit] {
+        width: 200px;
+        font-size: 16px;
+        margin: 5px auto;
+    }
+
+.input_element {
+    margin-bottom: 20px;
+}
+
+    .input_element label {
+        display: inline-block;
+        width: 200px;
+        text-align: right;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .input_element input[type=text], .input_element input[type=password] {
+        font-size: 18px;
+    } 
+
+    .input_element textarea {
+        width: 300px;
+        height: 150px;
+        font-size: 14px;
+        vertical-align: top;
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+#user_header {
+    background-color: gray;
+    overflow: hidden;
+    vertical-align: middle;
+    border: solid black 3px;
+}
+
+    #user_header h1, p, form{
+        margin: 20px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+        #user_header p a {
+            text-decoration: underline;
+            color: black;
+            font-size: 20px;
+        }
+
+        #user_header form input[type=submit] {
+            text-decoration: underline;
+            border: none;
+            background-color: gray;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+.table_container {
+    display: block;
+    margin: 10px auto;
+}
+
+    .table_container h1{
+        margin-left: 20px;
+    }
+
+    .table_container table, th, td {
+        border: 2px solid black;
+        text-align: center;
+    }
+    
+    .table_container th {
+        background-color: gray;
+    }
+    
+    .table_container th, td {
+        padding: 10px;
+    }
+    
+    .table_container table {
+        margin: 30px auto;
+        border-collapse: collapse;
+    }
+
+#add_event {
+    display: block;
+    width: 600px;
+    background-color: gray;
+    border: solid black 2px;
+    margin: 20px auto;
+}
+
+    #add_event h1 {
+        margin-left: 20px;
+    }
+
+#add_event_form {
+    display: block;
+    margin: 0 auto;
+}
+
+#add_event_form div {
+    margin-bottom: 10px;
+}
+
+    #add_event_form #add_event_form_btn{
+        display: block;
+        width: 125px;
+        font-size: 16px;
+        margin: 10px auto;
+    }   
+
+.edit_header {
+    background-color: gray;
+    overflow: hidden;
+    vertical-align: middle;
+    border: solid black 3px;
+    text-align: right;
+}
+    
+    .edit_header a, form {
+        vertical-align: middle;
+    }
+
+    .edit_header a {
+        text-decoration: underline;
+        color: black;
+        font-size: 20px;
+    }
+
+    .edit_header form input[type=submit] {
+        text-decoration: underline;
+        border: none;
+        background-color: gray;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+.edit_form_container {
+    display: block;
+    width: 600px;
+    background-color: gray;
+    border: solid black 3px;
+    margin: 50px auto;
+}
+    .edit_form_container h1 {
+        margin-left: 20px;
+    }
+
+    .edit_form_container form {
+        display: block;
+    }
+
+        .edit_form_container form input[type="submit"] {
+            display: block;
+            font-size: 16px;
+            margin: 10px auto;
+        }
+
+#event_info {
+    display: inline-block;
+    width: 600px;
+    margin: 30px;
+    vertical-align: top;
+}
+    #event_info h1, h2, table {
+        width: 550px;
+    }
+
+    #event_info table, th, td {
+        border: 2px solid black;
+        text-align: center;
+    }
+    
+    #event_info th {
+        background-color: gray;
+    }
+    
+    #event_info th, td {
+        padding: 10px;
+    }
+    
+    #event_info table {
+        margin: 30px;
+        border-collapse: collapse;
+        overflow: scroll;
+    }
+
+#events_discussion {
+    display: inline-block;
+    width: 600px;
+    margin: 30px;
+    vertical-align: top;
+}
+
+    #events_discussion form input[type=submit] {
+        display: block;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+
+#comments_container {
+    width: 550px;
+    height: 300px;
+    overflow: scroll;
+    background-color: white;
+}
+

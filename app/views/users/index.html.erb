@@ -1,0 +1,63 @@
+<h1> Welcome to Events Manager! </h1>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+        <p class="error"> <%= e %> </p>
+    <% end %>
+<% end %> 
+<% if flash[:success] %>
+    <% flash[:success].each do |s| %>
+        <p class="success"> <%= s %> </p>
+    <% end %>
+<% end %> 
+
+<div class="form_container">
+    <h1>Register Here: </h1>
+    <form class="login_reg_form" action="/users/create" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="input_element">
+            <label>First Name: </label>
+            <input type="text" name="user[first_name]">
+        </div>
+        <div class="input_element">
+            <label>Last Name: </label>
+            <input type="text" name="user[last_name]">
+        </div>
+        <div class="input_element">
+            <label>Email Address: </label>
+            <input type="text" name="user[email]">
+        </div>
+        <div class="input_element">
+            <label>City: </label>
+            <input type="text" name="user[city]">
+        </div>
+        <div class="input_element">
+            <label>State: </label>
+            <%= select_tag "user[state]", options_for_select(us_states) %>
+        </div>
+        <div class="input_element">
+            <label>Password: </label>
+            <input type="password" name="user[password]">
+        </div>
+        <div class="input_element">
+            <label>Confirm Password: </label>
+            <input type="password" name="user[password_confirmation]">
+        </div>
+        <input type="submit" value="Register">
+    </form>
+</div>
+<div class="form_container">
+    <h1>Log In Here: </h1>
+    <form class="login_reg_form" action="/users/login" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="input_element">
+            <label>Email Address: </label>
+            <input type="text" name="email" placeholder="Email">
+        </div>
+        <div class="input_element">
+            <label>Password: </label>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Log In">
+    </form>
+</div>
